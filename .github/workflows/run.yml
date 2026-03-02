@@ -255,6 +255,8 @@ jobs:
       # ====== 新增：下载自定义规则集 ======
       - name: Download custom ruleset
         run: |
+          mkdir -p download/custom_req
+
           files=(
               'alibaba.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Alibaba/Alibaba.list'
               'alibaba-domain.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Alibaba/Alibaba_Domain.list'
@@ -269,21 +271,61 @@ jobs:
               'twitter-custom.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Twitter/Twitter.list'
           )
 
-          for file in "${files[@]}"; do
-              set -- $file
-              curl -fsSL "$2" > "download/custom_req/$1" || { echo "Download Failed: $1"; exit 1; }
+          for item in "${files[@]}"; do
+              IFS=' ' read -r name url <<< "$item"
+              curl -fL --retry 3 --retry-delay 2 --connect-timeout 20 "$url" -o "download/custom_req/$name" || {
+                  echo "Download Failed: $name ($url)"
+                  exit 1
+              }
           done
 
-          # 清洗特殊字符、注释、空行
+          # 清洗特殊字符、注释、空行（awk 兼容写法）
           for file in download/custom_req/*.list; do
-              awk '{ gsub(/[[:cntrl:]]/, "", $0) } { gsub(/[^:]\/\/.*/, "", $0) } { gsub(/,\s+/, ",", $0) } /^\s*[#;]/ { next } /^$/ { next } { print $0 } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{
+                  gsub(/[[:cntrl:]]/, "", $0)
+                  sub(/^[[:space:]]+/, "", $0)
+                  sub(/[[:space:]]+$/, "", $0)
+                  gsub(/,[[:space:]]+/, ",", $0)
+              }
+              /^[[:space:]]*[#;]/ { next }
+              /^[[:space:]]*\/\// { next }
+              /^$/ { next }
+              { print }
+              END { print "" }' "$file" > tmp.list && mv tmp.list "$file"
           done
 
-          # 标准化SKK等特殊格式（转换为DOMAIN/DOMAIN-SUFFIX）
+          # 标准化格式（转换为 DOMAIN / DOMAIN-SUFFIX）
           for file in download/custom_req/*.list; do
-              awk '!/_.*\.skk\.moe/' "$file" > tmp.list && mv tmp.list "${file}"
-              awk '/^\+\./ { sub(/^\+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { if ($0 !~ /,/) print "DOMAIN," $0; else print $0; next } {print}' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{
+                  line = $0
+                  sub(/^[[:space:]]+/, "", line)
+                  sub(/[[:space:]]+$/, "", line)
+
+                  if (line ~ /_.*\.skk\.moe/) next
+
+                  if (line ~ /^\+\./) {
+                      sub(/^\+\./, "DOMAIN-SUFFIX,", line)
+                      print line
+                      next
+                  }
+
+                  if (line ~ /^[[:alnum:]_]/) {
+                      if (line !~ /,/) print "DOMAIN," line
+                      else print line
+                      next
+                  }
+
+                  if (line != "") print line
+              }
+              END { print "" }' "$file" > tmp.list && mv tmp.list "$file"
           done
+
+          # 验证：alibaba-domain.list 不能是空规则
+          if ! grep -qE '^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-REGEX|IP-CIDR|IP-CIDR6),' download/custom_req/alibaba-domain.list; then
+              echo "::error::alibaba-domain.list has no valid rules after normalization"
+              sed -n '1,80p' download/custom_req/alibaba-domain.list
+              exit 1
+          fi
 
       - name: Copy single files
         run: |
