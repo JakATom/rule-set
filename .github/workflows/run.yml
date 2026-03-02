@@ -278,8 +278,7 @@ jobs:
                   exit 1
               }
           done
-
-          # 清洗特殊字符、注释、空行（awk 兼容写法）
+          # 清洗特殊字符、注释、空行（awk兼容写法）
           for file in download/custom_req/*.list; do
               awk '{
                   gsub(/[[:cntrl:]]/, "", $0)
@@ -288,13 +287,12 @@ jobs:
                   gsub(/,[[:space:]]+/, ",", $0)
               }
               /^[[:space:]]*[#;]/ { next }
-              /^[[:space:]]*\/\// { next }
               /^$/ { next }
               { print }
-              END { print "" }' "$file" > tmp.list && mv tmp.list "$file"
+              END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
-          # 标准化格式（转换为 DOMAIN / DOMAIN-SUFFIX）
+          # 标准化SKK等特殊格式（转换为DOMAIN/DOMAIN-SUFFIX）
           for file in download/custom_req/*.list; do
               awk '{
                   line = $0
@@ -303,12 +301,21 @@ jobs:
 
                   if (line ~ /_.*\.skk\.moe/) next
 
+                  # +.example.com -> DOMAIN-SUFFIX,example.com
                   if (line ~ /^\+\./) {
-                      sub(/^\+\./, "DOMAIN-SUFFIX,", line)
-                      print line
+                      sub(/^\+\./, "", line)
+                      print "DOMAIN-SUFFIX," line
                       next
                   }
 
+                  # .example.com -> DOMAIN-SUFFIX,example.com
+                  if (line ~ /^\./) {
+                      sub(/^\./, "", line)
+                      print "DOMAIN-SUFFIX," line
+                      next
+                  }
+
+                  # 普通域名 / 已含规则前缀
                   if (line ~ /^[[:alnum:]_]/) {
                       if (line !~ /,/) print "DOMAIN," line
                       else print line
@@ -317,8 +324,9 @@ jobs:
 
                   if (line != "") print line
               }
-              END { print "" }' "$file" > tmp.list && mv tmp.list "$file"
+              END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
+
 
           # 验证：alibaba-domain.list 不能是空规则
           if ! grep -qE '^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-REGEX|IP-CIDR|IP-CIDR6),' download/custom_req/alibaba-domain.list; then
