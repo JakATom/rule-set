@@ -266,9 +266,6 @@ jobs:
               'video-cn.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/Video_CN.list'
               'warp.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/DESSS/warp.list'
               'tor.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/DESSS/tor.list'
-              'lan-custom.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/LAN.list'
-              'youtube-custom.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list'
-              'twitter-custom.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Twitter/Twitter.list'
           )
 
           for item in "${files[@]}"; do
