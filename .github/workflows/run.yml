@@ -118,7 +118,18 @@ jobs:
           sed -n '/## >> 抖音/,/##/{//!p}' "download/meta/DouYin.list" > tmp.list && mv tmp.list "download/meta/douyin.list"
 
           for file in download/meta/*.list; do
-              awk '{ gsub(/[[:cntrl:]]/, "", $0) } { gsub(/[^:]\/\/.*/, "", $0) } { gsub(/,\s+/, ",", $0) } /^\s*[#;]/ { next } /^$/ { next } { print $0 } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{
+                  gsub(/[[:cntrl:]]/, "", $0)
+                  sub(/^[[:space:]]+/, "", $0)
+                  sub(/[[:space:]]+$/, "", $0)
+                  sub(/[[:space:]]+\/\/.*/, "", $0)
+                  gsub(/,[[:space:]]+/, ",", $0)
+              }
+              /^[[:space:]]*[#;]/ { next }
+              /^\/\// { next }
+              /^$/ { next }
+              { print $0 }
+              END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
       - name: Download surge ruleset
@@ -165,7 +176,18 @@ jobs:
           done
 
           for file in download/surge/*.list; do
-              awk '{ gsub(/[[:cntrl:]]/, "", $0) } { gsub(/[^:]\/\/.*/, "", $0) } { gsub(/,\s+/, ",", $0) } /^\s*[#;]/ { next } /^$/ { next } { print $0 } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{
+                  gsub(/[[:cntrl:]]/, "", $0)
+                  sub(/^[[:space:]]+/, "", $0)
+                  sub(/[[:space:]]+$/, "", $0)
+                  sub(/[[:space:]]+\/\/.*/, "", $0)
+                  gsub(/,[[:space:]]+/, ",", $0)
+              }
+              /^[[:space:]]*[#;]/ { next }
+              /^\/\// { next }
+              /^$/ { next }
+              { print $0 }
+              END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
       - name: Download special ruleset
@@ -196,11 +218,49 @@ jobs:
           done
 
           for file in download/special/*.list; do
-              awk '{ gsub(/[[:cntrl:]]/, "", $0) } { gsub(/[^:]\/\/.*/, "", $0) } { gsub(/,\s+/, ",", $0) } /^\s*[#;]/ { next } /^$/ { next } { print $0 } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{
+                  gsub(/[[:cntrl:]]/, "", $0)
+                  sub(/^[[:space:]]+/, "", $0)
+                  sub(/[[:space:]]+$/, "", $0)
+                  sub(/[[:space:]]+\/\/.*/, "", $0)
+                  gsub(/,[[:space:]]+/, ",", $0)
+              }
+              /^[[:space:]]*[#;]/ { next }
+              /^\/\// { next }
+              /^$/ { next }
+              { print $0 }
+              END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
           for file in download/special/*-domains.list; do
-              awk '/_.*\.skk\.moe/ { next } /^\+\./ { sub(/^\+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { print "DOMAIN," $0 }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{
+                  line = $0
+                  sub(/^[[:space:]]+/, "", line)
+                  sub(/[[:space:]]+$/, "", line)
+
+                  if (line ~ /_.*\.skk\.moe/) next
+
+                  if (line ~ /^\+\./) {
+                      sub(/^\+\./, "", line)
+                      print "DOMAIN-SUFFIX," line
+                      next
+                  }
+
+                  if (line ~ /^\./) {
+                      sub(/^\./, "", line)
+                      print "DOMAIN-SUFFIX," line
+                      next
+                  }
+
+                  if (line ~ /^[[:alnum:]_]/) {
+                      if (line !~ /,/) print "DOMAIN," line
+                      else print line
+                      next
+                  }
+
+                  if (line != "") print line
+              }
+              END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
           for file in download/special/*-surge.list; do
@@ -216,19 +276,36 @@ jobs:
           done
 
           for file in download/special/*-yaml.list; do
-              awk '!/^payload/ { sub(/^\s*-\s*/, "", $0); print }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '!/^payload/ { sub(/^[[:space:]]*-[[:space:]]*/, "", $0); if ($0 != "") print } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
           for file in download/special/*-data.list; do
               awk '
-                  /^full:/   { sub(/^full:/, "DOMAIN,"); print; next }
-                  /^regexp:/ { sub(/^regexp:/, "DOMAIN-REGEX,"); print; next }
-                  /^\w/ { print "DOMAIN-SUFFIX," $0 }
+                  {
+                      line = $0
+                      sub(/^[[:space:]]+/, "", line)
+                      sub(/[[:space:]]+$/, "", line)
+                  }
+                  line ~ /^full:/ {
+                      sub(/^full:/, "", line)
+                      print "DOMAIN," line
+                      next
+                  }
+                  line ~ /^regexp:/ {
+                      sub(/^regexp:/, "", line)
+                      print "DOMAIN-REGEX," line
+                      next
+                  }
+                  line ~ /^[[:alnum:]_]/ {
+                      print "DOMAIN-SUFFIX," line
+                      next
+                  }
+                  END { print "" }
               ' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
           for file in download/special/*-host.list; do
-              awk '{ sub(/^0\.0\.0\.0\s+/, "DOMAIN-SUFFIX,"); print }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '{ sub(/^0\.0\.0\.0[[:space:]]+/, "DOMAIN-SUFFIX,"); print } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
           for file in download/special/*-trackers.list; do
@@ -296,7 +373,14 @@ jobs:
                   sub(/^[[:space:]]+/, "", line)
                   sub(/[[:space:]]+$/, "", line)
 
+                  if (line == "") next
                   if (line ~ /_.*\.skk\.moe/) next
+
+                  # keep existing classical rule lines
+                  if (line ~ /^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-REGEX|DOMAIN-WILDCARD|IP-CIDR|IP-CIDR6|SRC-IP-CIDR|SRC-IP-CIDR6|GEOIP|IP-ASN|USER-AGENT|URL-REGEX|PROCESS-NAME|PROCESS-PATH|DST-PORT|SRC-PORT|IN-PORT|NETWORK),/) {
+                      print line
+                      next
+                  }
 
                   # +.example.com -> DOMAIN-SUFFIX,example.com
                   if (line ~ /^\+\./) {
@@ -312,14 +396,33 @@ jobs:
                       next
                   }
 
-                  # 普通域名 / 已含规则前缀
-                  if (line ~ /^[[:alnum:]_]/) {
-                      if (line !~ /,/) print "DOMAIN," line
-                      else print line
+                  # pure CIDR/IP
+                  if (line ~ /^([0-9]{1,3}\.){3}[0-9]{1,3}\/[0-9]{1,2}$/) {
+                      print "IP-CIDR," line ",no-resolve"
+                      next
+                  }
+                  if (line ~ /:/ && line ~ /\/[0-9]{1,3}$/) {
+                      print "IP-CIDR6," line ",no-resolve"
+                      next
+                  }
+                  if (line ~ /^([0-9]{1,3}\.){3}[0-9]{1,3}$/) {
+                      print "IP-CIDR," line "/32,no-resolve"
                       next
                   }
 
-                  if (line != "") print line
+                  # keep unknown typed lines containing comma
+                  if (index(line, ",") > 0) {
+                      print line
+                      next
+                  }
+
+                  # plain domain
+                  if (line ~ /^[[:alnum:]][[:alnum:]._-]*\.[[:alpha:]][[:alnum:].-]*$/) {
+                      print "DOMAIN," line
+                      next
+                  }
+
+                  print line
               }
               END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
           done
@@ -612,15 +715,20 @@ jobs:
           source scripts/ruleset_process.sh
 
           for file in meta/*.list ; do
+              # Preserve non-domain/ipcidr classical lines (e.g. USER-AGENT, IP-ASN, URL-REGEX)
+              awk -F, '!/^(DOMAIN|DOMAIN-SUFFIX|DOMAIN-KEYWORD|DOMAIN-REGEX|IP-CIDR|IP-CIDR6),/ { print }' "${file}" > tmp_other.list
+
               if grep -q '^IP-CIDR' "${file}"; then
                   awk -F, '/^IP-CIDR/ { print $2; next }' "${file}" | ./geoip merge | awk '/:/ { print "IP-CIDR6," $0 ",no-resolve"; next } { print "IP-CIDR," $0 ",no-resolve" }' > tmp_cidr.list
 
                   format_ruleset_no_cidr "${file}" | domain_dedupe > tmp_no_cidr.list
 
-                  cat tmp_cidr.list tmp_no_cidr.list | ruleset_sort > "${file}"
+                  cat tmp_cidr.list tmp_no_cidr.list | ruleset_sort > tmp_main.list
               else
-                  format_ruleset_no_cidr "${file}" | domain_dedupe | ruleset_sort > tmp.list && mv tmp.list "${file}"
+                  format_ruleset_no_cidr "${file}" | domain_dedupe | ruleset_sort > tmp_main.list
               fi
+
+              cat tmp_main.list tmp_other.list | awk 'NF' | sort -u | ruleset_sort > "${file}"
           done
 
           dedupe_classical_to_clash_domain 'meta/fake-ip-filter.list' > 'meta/domain/fake-ip-filter.list'
@@ -760,10 +868,12 @@ jobs:
 
       - name: Generate meta classical ruleset
         run: |
-          awk '!/^DOMAIN,|^DOMAIN-SUFFIX,|^IP-CIDR6?,/ { print }' meta/adrules.list > meta/classical/adrules.list
-          awk '!/^DOMAIN,|^DOMAIN-SUFFIX,|^IP-CIDR6?,/ { print }' meta/cdn.list > meta/classical/cdn.list
-          awk '!/^DOMAIN,|^DOMAIN-SUFFIX,|^IP-CIDR6?,/ { print }' meta/dmca.list > meta/classical/dmca.list
-          awk '!/^DOMAIN,|^DOMAIN-SUFFIX,|^IP-CIDR6?,/ { print }' meta/speedtest.list > meta/classical/speedtest.list
+          mkdir -p meta/classical
+          for file in meta/*.list; do
+              filename=$(basename "$file")
+              awk '!/^DOMAIN,|^DOMAIN-SUFFIX,|^IP-CIDR6?,/ { print }' "$file" > "meta/classical/${filename}"
+              [ -s "meta/classical/${filename}" ] || rm -f "meta/classical/${filename}"
+          done
 
       - name: Download and unzip `mihomo core`
         run: |
@@ -838,7 +948,7 @@ jobs:
                   if (found_no_resolve) print "no_resolve: true";
               }
               {
-                  if($1 == "DOMAIN-REGEX" && match($0, ",")){
+                  if(($1 == "DOMAIN-REGEX" || $1 == "URL-REGEX") && match($0, ",")){
                       $2 = substr($0, RSTART + 1);
                   }
                   sub(/^"/, "", $2);
@@ -869,6 +979,15 @@ jobs:
                       print "- " $2;
                   } else if ($1 == "IP-CIDR6") {
                       if (!cidr6++) print "ip_cidr6_set:";
+                      print "- " $2;
+                  } else if ($1 == "GEOIP") {
+                      if (!geoip++) print "geoip_set:";
+                      print "- " $2;
+                  } else if ($1 == "URL-REGEX") {
+                      if (!url_regex++) print "url_regex_set:";
+                      print "- " $2;
+                  } else if ($1 == "IP-ASN") {
+                      if (!asn++) print "asn_set:";
                       print "- " $2;
                   }
               }' "$file" > "egern/$(basename "$file" ".list").yaml"
