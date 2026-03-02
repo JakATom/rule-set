@@ -65,6 +65,7 @@ jobs:
           mkdir -p download/meta
           mkdir -p download/surge
           mkdir -p download/special
+          mkdir -p download/custom_req
           mkdir -p singbox/version1
           mkdir -p singbox/version2
           mkdir -p singbox/version3
@@ -102,8 +103,7 @@ jobs:
               'iplocation-direct.list https://github.com/SunsetMkt/anti-ip-attribution/raw/refs/heads/main/generated/rule-set-direct.list'
               'iplocation-proxy.list https://github.com/SunsetMkt/anti-ip-attribution/raw/refs/heads/main/generated/rule-set-proxy.list'
               'crypto.list https://github.com/ACL4SSR/ACL4SSR/raw/refs/heads/master/Clash/Ruleset/Crypto.list'
-              'ai.list
-              https://github.com/ACL4SSR/ACL4SSR/raw/refs/heads/master/Clash/Ruleset/AI.list'
+              'ai.list https://github.com/ACL4SSR/ACL4SSR/raw/refs/heads/master/Clash/Ruleset/AI.list'
               'DMCA.list https://github.com/LM-Firefly/Rules/raw/refs/heads/master/Special/DMCA-Sensitive.list'
               'SpeedTest.list https://github.com/LM-Firefly/Rules/raw/refs/heads/master/SpeedTest.list'
               'DouYin.list https://github.com/LM-Firefly/Rules/raw/refs/heads/master/Domestic-Services/ByteDance.list'
@@ -252,6 +252,41 @@ jobs:
               }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
+      # ====== 新增：下载自定义规则集 ======
+      - name: Download custom ruleset
+        run: |
+          files=(
+              'alibaba.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Alibaba/Alibaba.list'
+              'alibaba-domain.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Alibaba/Alibaba_Domain.list'
+              'wechat.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/WeChat/WeChat.list'
+              'alipay.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AliPay/AliPay.list'
+              'xiaomi.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/XiaoMi/XiaoMi.list'
+              'apple-cdn.list https://ruleset.skk.moe/List/non_ip/apple_cdn.conf'
+              'apple-cn-skk.list https://ruleset.skk.moe/List/non_ip/apple_cn.conf'
+              'video-cn.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/Video_CN.list'
+              'warp.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/DESSS/warp.list'
+              'tor.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/DESSS/tor.list'
+              'lan-custom.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/LAN.list'
+              'youtube-custom.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/YouTube/YouTube.list'
+              'twitter-custom.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Twitter/Twitter.list'
+          )
+
+          for file in "${files[@]}"; do
+              set -- $file
+              curl -fsSL "$2" > "download/custom_req/$1" || { echo "Download Failed: $1"; exit 1; }
+          done
+
+          # 清洗特殊字符、注释、空行
+          for file in download/custom_req/*.list; do
+              awk '{ gsub(/[[:cntrl:]]/, "", $0) } { gsub(/[^:]\/\/.*/, "", $0) } { gsub(/,\s+/, ",", $0) } /^\s*[#;]/ { next } /^$/ { next } { print $0 } END { print "" }' "$file" > tmp.list && mv tmp.list "${file}"
+          done
+
+          # 标准化SKK等特殊格式（转换为DOMAIN/DOMAIN-SUFFIX）
+          for file in download/custom_req/*.list; do
+              awk '!/_.*\.skk\.moe/' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '/^+\./ { sub(/^+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { if ($0 !~ /,/) print "DOMAIN," $0; else print $0; next } {print}' "$file" > tmp.list && mv tmp.list "${file}"
+          done
+
       - name: Copy single files
         run: |
           src_dir="download/meta"
@@ -268,6 +303,9 @@ jobs:
 
           cp "download/special/cn-cidr.list" "meta/cncidr.list"
           cp "custom/apns.list" "meta/apns.list"
+          
+          # ====== 新增：将我们下载清洗完的自定义文件送入编译池 ======
+          cp download/custom_req/*.list meta/
 
       - name: Merge files
         run: |
@@ -542,9 +580,17 @@ jobs:
 
           dedupe_classical_to_clash_domain 'meta/fake-ip-filter.list' > 'meta/domain/fake-ip-filter.list'
 
+          # ====== 新增：提取需要从 cn 和 cncidr 中排他的自定义规则 ======
+          req1_lists=('meta/alibaba.list' 'meta/alibaba-domain.list' 'meta/wechat.list' 'meta/alipay.list' 'meta/xiaomi.list' 'meta/apple-cdn.list' 'meta/apple-cn-skk.list')
+
           grep -vxF -f 'meta/adrules.list' 'download/special/accelerated-china.list' > 'cn.list'
-          sort 'custom/direct-need-to-remove.list' 'meta/tld-proxy.list' 'meta/cdn.list' 'meta/proxy.list' | uniq > tmp_remove.list
+          # ====== 修改：把排他的规则加入到 tmp_remove.list 中 ======
+          sort 'custom/direct-need-to-remove.list' 'meta/tld-proxy.list' 'meta/cdn.list' 'meta/proxy.list' "${req1_lists[@]}" | uniq > tmp_remove.list
           sort 'cn.list' 'tmp_remove.list' 'custom/direct.list' | uniq | domain_dedupe | grep -vxF -f 'tmp_remove.list' | ruleset_sort > 'meta/cn.list'
+
+          # ====== 新增：从 cncidr.list 中精确剔除你的自定义IP规则 ======
+          awk -F, '/^IP-CIDR/ {print $1","$2}' "${req1_lists[@]}" > tmp_ip_remove.list
+          awk -F, 'NR==FNR {exclude[$1","$2]=1; next} {if (!exclude[$1","$2]) print $0}' tmp_ip_remove.list meta/cncidr.list > tmp_cncidr.list && mv tmp_cncidr.list meta/cncidr.list
 
           awk '{ sub(/,no-resolve$/, ""); print }' meta/cncidr.list > meta/cncidr-resolve.list
 
