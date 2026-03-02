@@ -728,7 +728,8 @@ jobs:
                   format_ruleset_no_cidr "${file}" | domain_dedupe | ruleset_sort > tmp_main.list
               fi
 
-              cat tmp_main.list tmp_other.list | awk 'NF' | sort -u | ruleset_sort > "${file}"
+              awk 'NF' tmp_other.list | sort -u > tmp_other_uniq.list
+              cat tmp_main.list tmp_other_uniq.list > "${file}"
           done
 
           dedupe_classical_to_clash_domain 'meta/fake-ip-filter.list' > 'meta/domain/fake-ip-filter.list'
