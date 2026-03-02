@@ -598,6 +598,17 @@ jobs:
         run: |
           for file in meta/*.list; do
               awk -F',' '
+              function open_array(name) {
+                  if (opened) printf "\n      ],\n";
+                  printf "      \"%s\": [\n", name;
+                  opened = 1;
+                  first = 1;
+              }
+              function push_value(v) {
+                  if (!first) printf ",\n";
+                  printf "        %s", v;
+                  first = 0;
+              }
               BEGIN {
                   printf "{\n";
                   printf "  \"version\": 1,\n";
@@ -605,59 +616,36 @@ jobs:
                   printf "    {\n";
               }
               {
-                  if($1 == "DOMAIN-REGEX" && match($0, ",")){
+                  if ($1 == "DOMAIN-REGEX" && match($0, ",")) {
                       $2 = substr($0, RSTART + 1);
                       gsub(/\\/, "\\\\", $2);
                   }
+
                   sub(/^"/, "", $2);
-                  sub(/^'"'"'/, "", $2);
+                  sub(/^'\''/, "", $2);
                   sub(/"$/, "", $2);
-                  sub(/'"'"'$/, "", $2);
+                  sub(/'\''$/, "", $2);
                   $2 = "\"" $2 "\"";
+
                   if ($1 == "DOMAIN") {
-                      if (!domain++) {
-                          if (opened) printf "\n      ],\n";
-                          printf "      \"domain\": [\n";
-                          printf "        %s", $2;
-                      } else {
-                          printf ",\n        %s", $2;
-                      }
+                      if (!domain++) open_array("domain");
+                      push_value($2);
                   } else if ($1 == "DOMAIN-SUFFIX") {
-                      if (!suffix++) {
-                          if (opened) printf "\n      ],\n";
-                          printf "      \"domain_suffix\": [\n";
-                          printf "        %s", $2;
-                      } else {
-                          printf ",\n        %s", $2;
-                      }
+                      if (!suffix++) open_array("domain_suffix");
+                      push_value($2);
                   } else if ($1 == "DOMAIN-KEYWORD") {
-                      if (!keyword++) {
-                          if (opened) printf "\n      ],\n";
-                          printf "      \"domain_keyword\": [\n";
-                          printf "        %s", $2;
-                      } else {
-                          printf ",\n        %s", $2;
-                      }
+                      if (!keyword++) open_array("domain_keyword");
+                      push_value($2);
                   } else if ($1 == "DOMAIN-REGEX") {
-                      if (!regex++) {
-                          if (opened) printf "\n      ],\n";
-                          printf "      \"domain_regex\": [\n";
-                          printf "        %s", $2;
-                      } else {
-                          printf ",\n        %s", $2;
-                      }
+                      if (!regex++) open_array("domain_regex");
+                      push_value($2);
                   } else if ($1 == "IP-CIDR" || $1 == "IP-CIDR6") {
-                      if (!cidr++) {
-                          if (opened) printf "\n      ],\n";
-                          printf "      \"ip_cidr\": [\n";
-                          printf "        %s", $2;
-                      } else {
-                          printf ",\n        %s", $2;
-                      }
+                      if (!cidr++) open_array("ip_cidr");
+                      push_value($2);
                   }
               }
               END {
-                  printf "\n      ]\n";
+                  if (opened) printf "\n      ]\n";
                   printf "    }\n";
                   printf "  ]\n";
                   printf "}\n";
@@ -673,6 +661,7 @@ jobs:
               awk 'sub(/"version": 1,/, "\"version\": 4,", $0) 1' "${file}" > "singbox/version4/$(basename "$file")"
           done
 
+
       - name: Download and unzip `sing-box core`
         run: |
           # singbox_version=$(curl -fsSL https://github.com/SagerNet/sing-box/releases | grep -oE '/SagerNet/sing-box/releases/tag/[^\"]*'| sort -r | head -1 | sed 's/.*v//')
@@ -687,8 +676,10 @@ jobs:
 
       - name: Generate sing-box srs
         run: |
+          command -v jq >/dev/null || { echo "::error::jq not found"; exit 1; }
+
           for file in singbox/*/*.json ; do
-              jq empty "$file" || { echo "::error::Invalid JSON: $file"; sed -n '1,40p' "$file"; exit 1; }
+              jq empty "$file" || { echo "::error::Invalid JSON: $file"; sed -n '1,80p' "$file"; exit 1; }
               ./sing-box rule-set compile --output "${file%.json}.srs" "${file}"
           done
 
