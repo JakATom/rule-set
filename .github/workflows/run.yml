@@ -200,7 +200,7 @@ jobs:
           done
 
           for file in download/special/*-domains.list; do
-              awk '/_.*\.skk\.moe/ { next } /^+\./ { sub(/^+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { print "DOMAIN," $0 }' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '/_.*\.skk\.moe/ { next } /^\+\./ { sub(/^\+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { print "DOMAIN," $0 }' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
           for file in download/special/*-surge.list; do
@@ -284,7 +284,7 @@ jobs:
           # 标准化SKK等特殊格式（转换为DOMAIN/DOMAIN-SUFFIX）
           for file in download/custom_req/*.list; do
               awk '!/_.*\.skk\.moe/' "$file" > tmp.list && mv tmp.list "${file}"
-              awk '/^+\./ { sub(/^+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { if ($0 !~ /,/) print "DOMAIN," $0; else print $0; next } {print}' "$file" > tmp.list && mv tmp.list "${file}"
+              awk '/^\+\./ { sub(/^\+\./, "DOMAIN-SUFFIX,"); print; next } /^\w/ { if ($0 !~ /,/) print "DOMAIN," $0; else print $0; next } {print}' "$file" > tmp.list && mv tmp.list "${file}"
           done
 
       - name: Copy single files
@@ -616,7 +616,7 @@ jobs:
                   $2 = "\"" $2 "\"";
                   if ($1 == "DOMAIN") {
                       if (!domain++) {
-                          if (NR > 1) printf "\n      ],\n";
+                          if (opened) printf "\n      ],\n";
                           printf "      \"domain\": [\n";
                           printf "        %s", $2;
                       } else {
@@ -624,7 +624,7 @@ jobs:
                       }
                   } else if ($1 == "DOMAIN-SUFFIX") {
                       if (!suffix++) {
-                          if (NR > 1) printf "\n      ],\n";
+                          if (opened) printf "\n      ],\n";
                           printf "      \"domain_suffix\": [\n";
                           printf "        %s", $2;
                       } else {
@@ -632,7 +632,7 @@ jobs:
                       }
                   } else if ($1 == "DOMAIN-KEYWORD") {
                       if (!keyword++) {
-                          if (NR > 1) printf "\n      ],\n";
+                          if (opened) printf "\n      ],\n";
                           printf "      \"domain_keyword\": [\n";
                           printf "        %s", $2;
                       } else {
@@ -640,7 +640,7 @@ jobs:
                       }
                   } else if ($1 == "DOMAIN-REGEX") {
                       if (!regex++) {
-                          if (NR > 1) printf "\n      ],\n";
+                          if (opened) printf "\n      ],\n";
                           printf "      \"domain_regex\": [\n";
                           printf "        %s", $2;
                       } else {
@@ -648,7 +648,7 @@ jobs:
                       }
                   } else if ($1 == "IP-CIDR" || $1 == "IP-CIDR6") {
                       if (!cidr++) {
-                          if (NR > 1) printf "\n      ],\n";
+                          if (opened) printf "\n      ],\n";
                           printf "      \"ip_cidr\": [\n";
                           printf "        %s", $2;
                       } else {
@@ -688,6 +688,7 @@ jobs:
       - name: Generate sing-box srs
         run: |
           for file in singbox/*/*.json ; do
+              jq empty "$file" || { echo "::error::Invalid JSON: $file"; sed -n '1,40p' "$file"; exit 1; }
               ./sing-box rule-set compile --output "${file%.json}.srs" "${file}"
           done
 
