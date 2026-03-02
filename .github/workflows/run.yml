@@ -261,8 +261,6 @@ jobs:
               'wechat.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/WeChat/WeChat.list'
               'alipay.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AliPay/AliPay.list'
               'xiaomi.list https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/XiaoMi/XiaoMi.list'
-              'apple-cdn.list https://ruleset.skk.moe/List/non_ip/apple_cdn.conf'
-              'apple-cn-skk.list https://ruleset.skk.moe/List/non_ip/apple_cn.conf'
               'video-cn.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/Video_CN.list'
               'warp.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/DESSS/warp.list'
               'tor.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/newone/newone/DESSS/tor.list'
@@ -581,7 +579,7 @@ jobs:
           dedupe_classical_to_clash_domain 'meta/fake-ip-filter.list' > 'meta/domain/fake-ip-filter.list'
 
           # ====== 新增：提取需要从 cn 和 cncidr 中排他的自定义规则 ======
-          req1_lists=('meta/alibaba.list' 'meta/alibaba-domain.list' 'meta/wechat.list' 'meta/alipay.list' 'meta/xiaomi.list' 'meta/apple-cdn.list' 'meta/apple-cn-skk.list')
+          req1_lists=('meta/alibaba.list' 'meta/alibaba-domain.list' 'meta/wechat.list' 'meta/alipay.list' 'meta/xiaomi.list')
 
           grep -vxF -f 'meta/adrules.list' 'download/special/accelerated-china.list' > 'cn.list'
           # ====== 修改：把排他的规则加入到 tmp_remove.list 中 ======
