@@ -301,6 +301,16 @@ jobs:
               'download/surge/HTTPDNS.list' \
           > meta/httpdns.list
 
+      - name: Merge warp file
+        run: |
+          cat 'download/surge/warp.list' \
+          > meta/warp.list
+
+      - name: Merge tor file
+        run: |
+          cat 'download/surge/tor.list' \
+          > meta/tor.list
+
       - name: Merge adrules file
         run: |
           cat 'download/surge/Adrules.list' \
@@ -424,6 +434,11 @@ jobs:
               'download/surge/Zhihu.list' \
               'download/surge/DouBan.list' \
               'download/surge/Coolapk.list' \
+              'download/surge/WeChat.list' \
+              'download/surge/AliPay.list' \
+              'download/surge/XiaoMi.list' \
+              'download/surge/Alibaba.list' \
+              'download/surge/video-cn.list' \
               'download/meta/nga.list' \
               'download/meta/xiaohongshu.list' \
               'download/meta/sina.list' \
