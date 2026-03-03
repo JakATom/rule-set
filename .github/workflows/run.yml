@@ -122,7 +122,7 @@ jobs:
 
       - name: Download surge ruleset
         run: |
-          surge_lists=('AppleProxy' 'Download' 'OneDrive' 'Microsoft' 'GitHub' 'GitLab' 'Gitee' 'GitBook' 'Amazon' 'eBay' 'Shopee' 'Shopify' 'PayPal' 'Crypto' 'Cryptocurrency' 'SteamCN' 'Game' 'Reddit' 'Discord' 'Whatsapp' 'Line' 'Threads' 'Instagram' 'Facebook' 'Twitter' 'TikTok' 'BiliBili' 'GoogleFCM' 'YouTube' 'Google' 'Spotify' 'Twitch' 'Bahamut' 'HBO' 'Disney' 'PrimeVideo' 'Netflix' 'Hulu' 'Abema' 'DMM' 'Niconico' 'AppleTV' 'DAZN' 'myTVSUPER' 'Speedtest' 'Lan' 'NGA' 'XiaoHongShu' 'Weibo' 'Zhihu' 'DouBan' 'Coolapk' 'DouYin' 'WeChat' 'AliPay' 'XiaoMi')
+          surge_lists=('AppleProxy' 'Download' 'OneDrive' 'Microsoft' 'GitHub' 'GitLab' 'Gitee' 'GitBook' 'Amazon' 'eBay' 'Shopee' 'Shopify' 'PayPal' 'Crypto' 'Cryptocurrency' 'SteamCN' 'Game' 'Reddit' 'Discord' 'Whatsapp' 'Line' 'Threads' 'Instagram' 'Facebook' 'Twitter' 'TikTok' 'BiliBili' 'GoogleFCM' 'YouTube' 'Google' 'Spotify' 'Twitch' 'Bahamut' 'HBO' 'Disney' 'PrimeVideo' 'Netflix' 'Hulu' 'Abema' 'DMM' 'Niconico' 'AppleTV' 'DAZN' 'myTVSUPER' 'Speedtest' 'Lan' 'NGA' 'XiaoHongShu' 'Weibo' 'Zhihu' 'DouBan' 'Coolapk' 'DouYin' 'AliPay' 'XiaoMi')
 
           for list in "${surge_lists[@]}"; do
               cp "${bm7_surge}/${list}/${list}.list" "download/surge/${list}.list"
@@ -159,9 +159,10 @@ jobs:
               'LocRedBook.list https://github.com/fmz200/wool_scripts/raw/refs/heads/main/Loon/rule/RedBook.list'
               'LocDouyin.list https://github.com/fmz200/wool_scripts/raw/refs/heads/main/Loon/rule/Douyin.list'
               'LocKuaiShou.list https://github.com/fmz200/wool_scripts/raw/refs/heads/main/Loon/rule/KuaiShou.list'
-              'video-cn.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/refs/heads/newone/newone/DESSS/Video_CN.list'
-              'warp.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/refs/heads/newone/newone/DESSS/warp.list'
-              'tor.list https://raw.githubusercontent.com/JakATom/DE_SSSProfile/refs/heads/newone/newone/DESSS/tor.list'
+              'video-cn.list https://github.com/JakATom/DE_SSSProfile/raw/refs/heads/newone/newone/DESSS/Video_CN.list'
+              'warp.list https://github.com/JakATom/DE_SSSProfile/raw/refs/heads/newone/newone/DESSS/warp.list'
+              'tor.list https://github.com/JakATom/DE_SSSProfile/raw/refs/heads/newone/newone/DESSS/tor.list'
+              'WeChat.list https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Loon/WeChat/WeChat.list'
           )
 
           for file in "${files[@]}"; do
