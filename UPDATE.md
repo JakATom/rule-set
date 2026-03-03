@@ -30,7 +30,7 @@
           > meta/tor.list
     ```
   * 3️⃣
-  * 在`- name: Merge socialmedia-cn file`下将如下假如到 `socialmedia-cn` 规则名称下。
+  * 在`- name: Merge socialmedia-cn file`下将如下加到 `socialmedia-cn` 规则名称下。
     ```
               'download/surge/WeChat.list' \
               'download/surge/AliPay.list' \
