@@ -84,7 +84,7 @@ jobs:
 
       - name: Download meta ruleset
         run: |
-          domain_lists=('category-ads-all' 'category-httpdns-cn' 'apple' 'microsoft@cn' 'onedrive' 'microsoft' 'github' 'gitlab' 'gitee' 'gitbook' 'apple-intelligence' 'category-ai-!cn' 'amazon' 'shopify' 'category-ecommerce' 'paypal' 'wise' 'category-cryptocurrency' 'category-game-accelerator-cn' 'category-game-platforms-download@cn' 'category-games@cn' 'category-game-platforms-download' 'category-games-!cn' 'category-forums' 'talkatone' 'discord' 'line' 'telegram' 'twitter' 'signal' 'meta' 'tiktok' 'bilibili' 'googlefcm' 'youtube' 'google' 'spotify' 'twitch' 'bahamut' 'hbo' 'disney' 'primevideo' 'netflix' 'hulu' 'abema' 'dmm' 'niconico' 'apple-tvplus' 'dazn' 'mytvsuper' 'speedtest' 'test-ipv6@cn' 'test-ipv6' 'tld-!cn' 'category-public-tracker' 'tracker' 'category-pt@!cn' 'category-pt' 'category-anticensorship' 'gfw' 'private' 'nga' 'xiaohongshu' 'sina' 'zhihu' 'douban' 'coolapk')
+          domain_lists=('category-ads-all' 'category-httpdns-cn' 'apple' 'microsoft@cn' 'onedrive' 'microsoft' 'github' 'gitlab' 'gitee' 'gitbook' 'apple-intelligence' 'category-ai-!cn' 'amazon' 'shopify' 'category-ecommerce' 'paypal' 'wise' 'category-cryptocurrency' 'category-game-accelerator-cn' 'category-game-platforms-download@cn' 'category-games@cn' 'category-game-platforms-download' 'category-games-!cn' 'category-forums' 'talkatone' 'discord' 'line' 'telegram' 'signal' 'whatsapp' 'category-social-media-!cn' 'tiktok' 'bilibili' 'googlefcm' 'youtube' 'google' 'spotify' 'twitch' 'bahamut' 'hbo' 'disney' 'primevideo' 'netflix' 'hulu' 'abema' 'dmm' 'niconico' 'apple-tvplus' 'dazn' 'mytvsuper' 'category-cdn-!cn' 'category-speedtest@cn' 'category-speedtest' 'test-ipv6@cn' 'test-ipv6' 'tld-!cn' 'category-public-tracker' 'tracker' 'category-pt@!cn' 'category-pt' 'category-anticensorship' 'gfw' 'private' 'nga' 'xiaohongshu' 'sina' 'zhihu' 'douban' 'coolapk')
 
           for list in "${domain_lists[@]}"; do
               cp "${mihomo_domains}/${list}.list" "download/meta/${list}.list"
@@ -153,7 +153,6 @@ jobs:
               'Adrules.list https://github.com/Cats-Team/AdRules/raw/refs/heads/main/adrules-surge.conf'
               'HTTPDNS.list https://github.com/VirgilClyne/GetSomeFries/raw/refs/heads/main/ruleset/HTTPDNS.Block.list'
               'PCDN.list https://github.com/uselibrary/PCDN/raw/refs/heads/main/pcdn.list'
-              'AWAvenueAds.list https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/refs/heads/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list'
               'AntiAD.list https://github.com/LOWERTOP/Shadowrocket-First/raw/refs/heads/main/AntiAD.list'
               'Talkatone.list https://github.com/LOWERTOP/Shadowrocket-First/raw/refs/heads/main/TalkatoneProxy.list'
               'LocRedBook.list https://github.com/fmz200/wool_scripts/raw/refs/heads/main/Loon/rule/RedBook.list'
@@ -315,7 +314,6 @@ jobs:
       - name: Merge adrules file
         run: |
           cat 'download/surge/Adrules.list' \
-              'download/surge/AWAvenueAds.list' \
               'download/surge/AntiAD.list' \
               'download/surge/PCDN.list' \
               'download/meta/category-ads-all.list' \
@@ -459,11 +457,11 @@ jobs:
               'download/surge/Facebook.list' \
               'download/surge/Twitter.list' \
               'download/meta/discord.list' \
+              'download/meta/whatsapp.list' \
               'download/meta/line.list' \
               'download/meta/telegram.list' \
-              'download/meta/twitter.list' \
               'download/meta/signal.list' \
-              'download/meta/meta.list' \
+              'download/meta/category-social-media-!cn.list' \
           > meta/socialmedia.list
 
       - name: Merge tiktok file
@@ -485,6 +483,7 @@ jobs:
               'download/special/download-domains.list' \
               'download/special/cdn-surge.list' \
               'download/special/download-surge.list' \
+              'download/meta/category-cdn-!cn.list' \
               'custom/cdn.list' \
           > meta/cdn.list
 
@@ -492,12 +491,12 @@ jobs:
         run: |
           cat 'custom/speedtest.list' \
               'download/special/speedtest-domains.list' \
-              'download/meta/speedtest.list' \
+              'download/meta/category-speedtest.list' \
               'download/meta/SpeedTest.list' \
               'download/meta/test-ipv6.list' \
               'download/surge/Speedtest.list' \
               | \
-              grep -vxF -f 'download/meta/test-ipv6@cn.list' \
+              grep -vxF -f 'download/meta/test-ipv6@cn.list' -f 'download/meta/category-speedtest@cn.list' \
           > meta/speedtest.list
 
       - name: Merge gfw file
