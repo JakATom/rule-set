@@ -79,7 +79,10 @@ singbox/
    ├── version3/
    │      ├──dmca.srs
    │      └──dmca.json
-   └── version4/
+   ├── version4/
+   │      ├──dmca.srs
+   │      └──dmca.json
+   └── version5/
           ├──dmca.srs
           └──dmca.json
 ```
@@ -1630,6 +1633,7 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <th>version2</th>
         <th>version3</th>
         <th>version4</th>
+        <th>version5</th>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/abema.srs">[singbox/v1] abema(srs)</a>
@@ -1644,6 +1648,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/abema.srs">[singbox/v4] abema(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/abema.json">[singbox/v4] abema(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/abema.srs">[singbox/v5] abema(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/abema.json">[singbox/v5] abema(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/adrules.srs">[singbox/v1] adrules(srs)</a>
@@ -1658,6 +1665,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/adrules.srs">[singbox/v4] adrules(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/adrules.json">[singbox/v4] adrules(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/adrules.srs">[singbox/v5] adrules(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/adrules.json">[singbox/v5] adrules(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/ai.srs">[singbox/v1] ai(srs)</a>
@@ -1672,6 +1682,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/ai.srs">[singbox/v4] ai(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/ai.json">[singbox/v4] ai(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/ai.srs">[singbox/v5] ai(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/ai.json">[singbox/v5] ai(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/apns.srs">[singbox/v1] apns(srs)</a>
@@ -1686,6 +1699,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apns.srs">[singbox/v4] apns(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apns.json">[singbox/v4] apns(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apns.srs">[singbox/v5] apns(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apns.json">[singbox/v5] apns(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/apple-cn.srs">[singbox/v1] apple-cn(srs)</a>
@@ -1700,6 +1716,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple-cn.srs">[singbox/v4] apple-cn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple-cn.json">[singbox/v4] apple-cn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple-cn.srs">[singbox/v5] apple-cn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple-cn.json">[singbox/v5] apple-cn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/apple-proxy.srs">[singbox/v1] apple-proxy(srs)</a>
@@ -1714,6 +1733,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple-proxy.srs">[singbox/v4] apple-proxy(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple-proxy.json">[singbox/v4] apple-proxy(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple-proxy.srs">[singbox/v5] apple-proxy(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple-proxy.json">[singbox/v5] apple-proxy(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/apple-tv.srs">[singbox/v1] apple-tv(srs)</a>
@@ -1728,6 +1750,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple-tv.srs">[singbox/v4] apple-tv(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple-tv.json">[singbox/v4] apple-tv(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple-tv.srs">[singbox/v5] apple-tv(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple-tv.json">[singbox/v5] apple-tv(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/apple.srs">[singbox/v1] apple(srs)</a>
@@ -1742,6 +1767,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple.srs">[singbox/v4] apple(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/apple.json">[singbox/v4] apple(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple.srs">[singbox/v5] apple(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/apple.json">[singbox/v5] apple(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/bahamut.srs">[singbox/v1] bahamut(srs)</a>
@@ -1756,6 +1784,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/bahamut.srs">[singbox/v4] bahamut(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/bahamut.json">[singbox/v4] bahamut(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/bahamut.srs">[singbox/v5] bahamut(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/bahamut.json">[singbox/v5] bahamut(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/bilibili.srs">[singbox/v1] bilibili(srs)</a>
@@ -1770,6 +1801,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/bilibili.srs">[singbox/v4] bilibili(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/bilibili.json">[singbox/v4] bilibili(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/bilibili.srs">[singbox/v5] bilibili(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/bilibili.json">[singbox/v5] bilibili(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/cdn.srs">[singbox/v1] cdn(srs)</a>
@@ -1784,6 +1818,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/cdn.srs">[singbox/v4] cdn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/cdn.json">[singbox/v4] cdn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/cdn.srs">[singbox/v5] cdn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/cdn.json">[singbox/v5] cdn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/cn.srs">[singbox/v1] cn(srs)</a>
@@ -1798,6 +1835,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/cn.srs">[singbox/v4] cn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/cn.json">[singbox/v4] cn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/cn.srs">[singbox/v5] cn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/cn.json">[singbox/v5] cn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/cncidr.srs">[singbox/v1] cncidr(srs)</a>
@@ -1812,6 +1852,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/cncidr.srs">[singbox/v4] cncidr(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/cncidr.json">[singbox/v4] cncidr(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/cncidr.srs">[singbox/v5] cncidr(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/cncidr.json">[singbox/v5] cncidr(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/crypto.srs">[singbox/v1] crypto(srs)</a>
@@ -1826,6 +1869,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/crypto.srs">[singbox/v4] crypto(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/crypto.json">[singbox/v4] crypto(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/crypto.srs">[singbox/v5] crypto(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/crypto.json">[singbox/v5] crypto(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/dazn.srs">[singbox/v1] dazn(srs)</a>
@@ -1840,6 +1886,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/dazn.srs">[singbox/v4] dazn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/dazn.json">[singbox/v4] dazn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/dazn.srs">[singbox/v5] dazn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/dazn.json">[singbox/v5] dazn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/disney.srs">[singbox/v1] disney(srs)</a>
@@ -1854,6 +1903,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/disney.srs">[singbox/v4] disney(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/disney.json">[singbox/v4] disney(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/disney.srs">[singbox/v5] disney(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/disney.json">[singbox/v5] disney(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/dmca.srs">[singbox/v1] dmca(srs)</a>
@@ -1868,6 +1920,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/dmca.srs">[singbox/v4] dmca(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/dmca.json">[singbox/v4] dmca(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/dmca.srs">[singbox/v5] dmca(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/dmca.json">[singbox/v5] dmca(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/dmm.srs">[singbox/v1] dmm(srs)</a>
@@ -1882,6 +1937,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/dmm.srs">[singbox/v4] dmm(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/dmm.json">[singbox/v4] dmm(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/dmm.srs">[singbox/v5] dmm(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/dmm.json">[singbox/v5] dmm(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/douyin.srs">[singbox/v1] douyin(srs)</a>
@@ -1896,6 +1954,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/douyin.srs">[singbox/v4] douyin(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/douyin.json">[singbox/v4] douyin(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/douyin.srs">[singbox/v5] douyin(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/douyin.json">[singbox/v5] douyin(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/ecommerce.srs">[singbox/v1] ecommerce(srs)</a>
@@ -1910,6 +1971,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/ecommerce.srs">[singbox/v4] ecommerce(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/ecommerce.json">[singbox/v4] ecommerce(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/ecommerce.srs">[singbox/v5] ecommerce(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/ecommerce.json">[singbox/v5] ecommerce(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/fake-ip-filter.srs">[singbox/v1] fake-ip-filter(srs)</a>
@@ -1924,6 +1988,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/fake-ip-filter.srs">[singbox/v4] fake-ip-filter(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/fake-ip-filter.json">[singbox/v4] fake-ip-filter(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/fake-ip-filter.srs">[singbox/v5] fake-ip-filter(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/fake-ip-filter.json">[singbox/v5] fake-ip-filter(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/forum.srs">[singbox/v1] forum(srs)</a>
@@ -1938,6 +2005,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/forum.srs">[singbox/v4] forum(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/forum.json">[singbox/v4] forum(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/forum.srs">[singbox/v5] forum(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/forum.json">[singbox/v5] forum(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/games-cn.srs">[singbox/v1] games-cn(srs)</a>
@@ -1952,6 +2022,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/games-cn.srs">[singbox/v4] games-cn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/games-cn.json">[singbox/v4] games-cn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/games-cn.srs">[singbox/v5] games-cn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/games-cn.json">[singbox/v5] games-cn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/games.srs">[singbox/v1] games(srs)</a>
@@ -1966,6 +2039,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/games.srs">[singbox/v4] games(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/games.json">[singbox/v4] games(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/games.srs">[singbox/v5] games(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/games.json">[singbox/v5] games(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/gfw.srs">[singbox/v1] gfw(srs)</a>
@@ -1980,6 +2056,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/gfw.srs">[singbox/v4] gfw(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/gfw.json">[singbox/v4] gfw(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/gfw.srs">[singbox/v5] gfw(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/gfw.json">[singbox/v5] gfw(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/gits.srs">[singbox/v1] gits(srs)</a>
@@ -1994,6 +2073,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/gits.srs">[singbox/v4] gits(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/gits.json">[singbox/v4] gits(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/gits.srs">[singbox/v5] gits(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/gits.json">[singbox/v5] gits(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/google.srs">[singbox/v1] google(srs)</a>
@@ -2008,6 +2090,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/google.srs">[singbox/v4] google(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/google.json">[singbox/v4] google(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/google.srs">[singbox/v5] google(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/google.json">[singbox/v5] google(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/googlefcm.srs">[singbox/v1] googlefcm(srs)</a>
@@ -2022,6 +2107,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/googlefcm.srs">[singbox/v4] googlefcm(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/googlefcm.json">[singbox/v4] googlefcm(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/googlefcm.srs">[singbox/v5] googlefcm(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/googlefcm.json">[singbox/v5] googlefcm(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/hbo.srs">[singbox/v1] hbo(srs)</a>
@@ -2036,6 +2124,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/hbo.srs">[singbox/v4] hbo(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/hbo.json">[singbox/v4] hbo(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/hbo.srs">[singbox/v5] hbo(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/hbo.json">[singbox/v5] hbo(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/httpdns.srs">[singbox/v1] httpdns(srs)</a>
@@ -2050,6 +2141,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/httpdns.srs">[singbox/v4] httpdns(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/httpdns.json">[singbox/v4] httpdns(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/httpdns.srs">[singbox/v5] httpdns(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/httpdns.json">[singbox/v5] httpdns(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/hulu.srs">[singbox/v1] hulu(srs)</a>
@@ -2064,6 +2158,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/hulu.srs">[singbox/v4] hulu(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/hulu.json">[singbox/v4] hulu(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/hulu.srs">[singbox/v5] hulu(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/hulu.json">[singbox/v5] hulu(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/iplocation-direct.srs">[singbox/v1] iplocation-direct(srs)</a>
@@ -2078,6 +2175,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/iplocation-direct.srs">[singbox/v4] iplocation-direct(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/iplocation-direct.json">[singbox/v4] iplocation-direct(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/iplocation-direct.srs">[singbox/v5] iplocation-direct(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/iplocation-direct.json">[singbox/v5] iplocation-direct(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/iplocation-proxy.srs">[singbox/v1] iplocation-proxy(srs)</a>
@@ -2092,6 +2192,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/iplocation-proxy.srs">[singbox/v4] iplocation-proxy(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/iplocation-proxy.json">[singbox/v4] iplocation-proxy(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/iplocation-proxy.srs">[singbox/v5] iplocation-proxy(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/iplocation-proxy.json">[singbox/v5] iplocation-proxy(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/microsoft-cn.srs">[singbox/v1] microsoft-cn(srs)</a>
@@ -2106,6 +2209,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/microsoft-cn.srs">[singbox/v4] microsoft-cn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/microsoft-cn.json">[singbox/v4] microsoft-cn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/microsoft-cn.srs">[singbox/v5] microsoft-cn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/microsoft-cn.json">[singbox/v5] microsoft-cn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/microsoft.srs">[singbox/v1] microsoft(srs)</a>
@@ -2120,6 +2226,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/microsoft.srs">[singbox/v4] microsoft(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/microsoft.json">[singbox/v4] microsoft(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/microsoft.srs">[singbox/v5] microsoft(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/microsoft.json">[singbox/v5] microsoft(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/mytvsuper.srs">[singbox/v1] mytvsuper(srs)</a>
@@ -2134,6 +2243,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/mytvsuper.srs">[singbox/v4] mytvsuper(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/mytvsuper.json">[singbox/v4] mytvsuper(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/mytvsuper.srs">[singbox/v5] mytvsuper(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/mytvsuper.json">[singbox/v5] mytvsuper(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/netflix.srs">[singbox/v1] netflix(srs)</a>
@@ -2148,6 +2260,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/netflix.srs">[singbox/v4] netflix(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/netflix.json">[singbox/v4] netflix(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/netflix.srs">[singbox/v5] netflix(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/netflix.json">[singbox/v5] netflix(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/niconico.srs">[singbox/v1] niconico(srs)</a>
@@ -2162,6 +2277,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/niconico.srs">[singbox/v4] niconico(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/niconico.json">[singbox/v4] niconico(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/niconico.srs">[singbox/v5] niconico(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/niconico.json">[singbox/v5] niconico(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/onedrive.srs">[singbox/v1] onedrive(srs)</a>
@@ -2176,6 +2294,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/onedrive.srs">[singbox/v4] onedrive(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/onedrive.json">[singbox/v4] onedrive(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/onedrive.srs">[singbox/v5] onedrive(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/onedrive.json">[singbox/v5] onedrive(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/paypal.srs">[singbox/v1] paypal(srs)</a>
@@ -2190,6 +2311,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/paypal.srs">[singbox/v4] paypal(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/paypal.json">[singbox/v4] paypal(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/paypal.srs">[singbox/v5] paypal(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/paypal.json">[singbox/v5] paypal(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/primevideo.srs">[singbox/v1] primevideo(srs)</a>
@@ -2204,6 +2328,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/primevideo.srs">[singbox/v4] primevideo(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/primevideo.json">[singbox/v4] primevideo(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/primevideo.srs">[singbox/v5] primevideo(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/primevideo.json">[singbox/v5] primevideo(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/private.srs">[singbox/v1] private(srs)</a>
@@ -2218,6 +2345,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/private.srs">[singbox/v4] private(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/private.json">[singbox/v4] private(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/private.srs">[singbox/v5] private(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/private.json">[singbox/v5] private(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/proxy.srs">[singbox/v1] proxy(srs)</a>
@@ -2232,6 +2362,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/proxy.srs">[singbox/v4] proxy(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/proxy.json">[singbox/v4] proxy(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/proxy.srs">[singbox/v5] proxy(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/proxy.json">[singbox/v5] proxy(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/socialmedia-cn.srs">[singbox/v1] socialmedia-cn(srs)</a>
@@ -2246,6 +2379,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/socialmedia-cn.srs">[singbox/v4] socialmedia-cn(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/socialmedia-cn.json">[singbox/v4] socialmedia-cn(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/socialmedia-cn.srs">[singbox/v5] socialmedia-cn(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/socialmedia-cn.json">[singbox/v5] socialmedia-cn(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/socialmedia.srs">[singbox/v1] socialmedia(srs)</a>
@@ -2260,6 +2396,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/socialmedia.srs">[singbox/v4] socialmedia(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/socialmedia.json">[singbox/v4] socialmedia(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/socialmedia.srs">[singbox/v5] socialmedia(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/socialmedia.json">[singbox/v5] socialmedia(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/speedtest.srs">[singbox/v1] speedtest(srs)</a>
@@ -2274,6 +2413,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/speedtest.srs">[singbox/v4] speedtest(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/speedtest.json">[singbox/v4] speedtest(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/speedtest.srs">[singbox/v5] speedtest(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/speedtest.json">[singbox/v5] speedtest(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/spotify.srs">[singbox/v1] spotify(srs)</a>
@@ -2288,6 +2430,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/spotify.srs">[singbox/v4] spotify(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/spotify.json">[singbox/v4] spotify(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/spotify.srs">[singbox/v5] spotify(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/spotify.json">[singbox/v5] spotify(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/talkatone.srs">[singbox/v1] talkatone(srs)</a>
@@ -2302,6 +2447,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/talkatone.srs">[singbox/v4] talkatone(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/talkatone.json">[singbox/v4] talkatone(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/talkatone.srs">[singbox/v5] talkatone(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/talkatone.json">[singbox/v5] talkatone(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/tiktok.srs">[singbox/v1] tiktok(srs)</a>
@@ -2316,6 +2464,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/tiktok.srs">[singbox/v4] tiktok(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/tiktok.json">[singbox/v4] tiktok(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/tiktok.srs">[singbox/v5] tiktok(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/tiktok.json">[singbox/v5] tiktok(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/tld-proxy.srs">[singbox/v1] tld-proxy(srs)</a>
@@ -2330,6 +2481,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/tld-proxy.srs">[singbox/v4] tld-proxy(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/tld-proxy.json">[singbox/v4] tld-proxy(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/tld-proxy.srs">[singbox/v5] tld-proxy(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/tld-proxy.json">[singbox/v5] tld-proxy(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/twitch.srs">[singbox/v1] twitch(srs)</a>
@@ -2344,6 +2498,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/twitch.srs">[singbox/v4] twitch(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/twitch.json">[singbox/v4] twitch(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/twitch.srs">[singbox/v5] twitch(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/twitch.json">[singbox/v5] twitch(json)</a></td>
     </tr>
     <tr>
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version1/youtube.srs">[singbox/v1] youtube(srs)</a>
@@ -2358,6 +2515,9 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
         <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/youtube.srs">[singbox/v4] youtube(srs)</a>
         <br><br>
         <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version4/youtube.json">[singbox/v4] youtube(json)</a></td>
+        <td><a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/youtube.srs">[singbox/v5] youtube(srs)</a>
+        <br><br>
+        <a href="https://github.com/QuixoticHeart/rule-set/raw/refs/heads/ruleset/singbox/version5/youtube.json">[singbox/v5] youtube(json)</a></td>
     </tr>
 </table>
 
@@ -2391,4 +2551,4 @@ sing-box 文档关于 [domain_suffix 行为更新](https://sing-box.sagernet.org
 
 ## 项目 Star 数增长趋势
 
-[![Stargazers over time](https://starchart.cc/QuixoticHeart/rule-set.svg)](https://starchart.cc/QuixoticHeart/rule-set)
+[![Stargazers over time](https://starchart.cc/QuixoticHeart/rule-set.svg?variant=adaptive)](https://starchart.cc/QuixoticHeart/rule-set)

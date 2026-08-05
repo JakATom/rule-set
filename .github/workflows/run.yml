@@ -21,10 +21,10 @@ jobs:
         shell: bash
 
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Checkout "MetaCubeX/meta-rules-dat"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: "MetaCubeX/meta-rules-dat"
           ref: meta
@@ -34,7 +34,7 @@ jobs:
             geo/geoip/classical
 
       - name: Checkout "blackmatrix7/ios_rule_script"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: "blackmatrix7/ios_rule_script"
           ref: master
@@ -43,13 +43,13 @@ jobs:
             rule/Surge
 
       - name: Checkout "Loyalsoldier/geoip"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: "Loyalsoldier/geoip"
           path: ls-geoip
 
       - name: Setup Go
-        uses: actions/setup-go@v6
+        uses: actions/setup-go@v7
         with:
           go-version-file: ./ls-geoip/go.mod
           cache-dependency-path: ./ls-geoip/go.sum
@@ -69,6 +69,7 @@ jobs:
           mkdir -p singbox/version2
           mkdir -p singbox/version3
           mkdir -p singbox/version4
+          mkdir -p singbox/version5
           mkdir -p meta/domain
           mkdir -p meta/ipcidr
           mkdir -p meta/classical
@@ -259,20 +260,10 @@ jobs:
 
       - name: Copy single files
         run: |
-          src_dir="download/meta"
-          dst_dir="meta"
-
-          src_names=('iplocation-direct' 'microsoft@cn' 'tld-!cn')
-          dst_names=('iplocation-direct' 'microsoft-cn' 'tld-proxy')
-
-          for i in "${!dst_names[@]}"; do
-              src_file="$src_dir/${src_names[i]}.list"
-              dst_file="$dst_dir/${dst_names[i]}.list"
-              cp "$src_file" "$dst_file"
-          done
-
-          cp "download/special/cn-cidr.list" "meta/cncidr.list"
-          cp "custom/apns.list" "meta/apns.list"
+          cp 'download/meta/microsoft@cn.list' 'meta/microsoft-cn.list'
+          cp 'download/meta/tld-!cn.list' 'meta/tld-proxy.list'
+          cp 'download/special/cn-cidr.list' 'meta/cncidr.list'
+          cp 'custom/apns.list' 'meta/apns.list'
 
       - name: Merge files
         run: |
@@ -321,6 +312,20 @@ jobs:
               | \
               grep -vxF -f 'custom/reject-need-to-remove.list' \
           > meta/adrules.list
+
+      - name: Merge cdn file
+        run: |
+          cat 'download/special/cdn-domains.list' \
+              'download/special/download-domains.list' \
+              'download/special/cdn-surge.list' \
+              'download/special/download-surge.list' \
+              'download/meta/category-cdn-!cn.list' \
+              'custom/cdn.list' \
+          > meta/cdn.list
+
+      - name: Merge iplocation-direct file
+        run: |
+          grep -vxF -f 'meta/cdn.list' 'download/meta/iplocation-direct.list' > 'meta/iplocation-direct.list'
 
       - name: Merge iplocation-proxy file
         run: |
@@ -476,16 +481,6 @@ jobs:
           cat 'download/surge/Reddit.list' \
               'download/meta/category-forums.list' \
           > meta/forum.list
-
-      - name: Merge cdn file
-        run: |
-          cat 'download/special/cdn-domains.list' \
-              'download/special/download-domains.list' \
-              'download/special/cdn-surge.list' \
-              'download/special/download-surge.list' \
-              'download/meta/category-cdn-!cn.list' \
-              'custom/cdn.list' \
-          > meta/cdn.list
 
       - name: Merge speedtest file
         run: |
@@ -645,13 +640,14 @@ jobs:
               awk 'sub(/"version": 1,/, "\"version\": 2,", $0) 1' "${file}" > "singbox/version2/$(basename "$file")"
               awk 'sub(/"version": 1,/, "\"version\": 3,", $0) 1' "${file}" > "singbox/version3/$(basename "$file")"
               awk 'sub(/"version": 1,/, "\"version\": 4,", $0) 1' "${file}" > "singbox/version4/$(basename "$file")"
+              awk 'sub(/"version": 1,/, "\"version\": 5,", $0) 1' "${file}" > "singbox/version5/$(basename "$file")"
           done
 
       - name: Download and unzip `sing-box core`
         run: |
-          # singbox_version=$(curl -fsSL https://github.com/SagerNet/sing-box/releases | grep -oE '/SagerNet/sing-box/releases/tag/[^\"]*'| sort -r | head -1 | sed 's/.*v//')
+          # singbox_version=$(curl -fsSL https://github.com/SagerNet/sing-box/releases | grep -oE '/SagerNet/sing-box/releases/tag/[^\"]*'| sort -rV | head -1 | sed 's/.*v//')
 
-          singbox_version="1.13.0"
+          singbox_version="1.14.0-alpha.10"
 
           wget "https://github.com/SagerNet/sing-box/releases/download/v${singbox_version}/sing-box-${singbox_version}-linux-amd64.tar.gz" -O - | tar -zxf -
 
