@@ -1,0 +1,12 @@
+HOST-SUFFIX,cloud.microsoft,warp
+HOST-SUFFIX,cloudflare.com,warp
+HOST-SUFFIX,reddit.com,warp
+HOST-SUFFIX,redditlist.com,warp
+HOST-SUFFIX,redditmail.com,warp
+HOST-SUFFIX,redditmedia.com,warp
+HOST-SUFFIX,redditspace.com,warp
+HOST-SUFFIX,redditstatic.com,warp
+HOST-SUFFIX,reddituploads.com,warp
+HOST-SUFFIX,reddituploads.com.cdn-cf.behance.net,warp
+HOST-SUFFIX,rte.ie,warp
+HOST-SUFFIX,wikipedia.org,warp
