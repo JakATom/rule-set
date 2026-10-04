@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "2047.one",
+        "blogspot.com",
+        "onion",
+        "pincong.rocks",
+        "torproject.org"
+      ]
+    }
+  ]
+}
